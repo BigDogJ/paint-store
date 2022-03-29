@@ -31,7 +31,7 @@ $search_id = uniqid( 'search-' );
 		<div class="mdc-text-field__ripple"></div>
 		<input
 			class="mdc-text-field__input"
-			placeholder="<?php esc_attr_e( 'Search for Colour', 'material-design-google' ); ?>"
+			placeholder="<?php esc_attr_e( 'Search Straight Paint', 'material-design-google' ); ?>"
 			aria-label="<?php esc_attr_e( 'Search', 'material-design-google' ); ?>"
 			type="search"
 			name="s"

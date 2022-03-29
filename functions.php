@@ -59,6 +59,8 @@ if ( ! function_exists( 'material_design_theme_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+		add_image_size('professorLandscape',400, 260, true);
+ 		add_image_size('professorPortrait',480, 650, true);
 
 		// This theme uses wp_nav_menu() in two location.
 		register_nav_menus(
@@ -283,7 +285,4 @@ MaterialDesign\Theme\Customizer\Menu\setup();
 MaterialDesign\Theme\Widgets\setup();
 MaterialDesign\Theme\BlockEditor\setup();
 
-
-
-//Added bootsrap for the carousel.
 

@@ -64,6 +64,25 @@ $class           .= ( $has_dark_mode ) ? ' top-app-bar--has-dark-mode' : '';
 				<span class="dark-mode__icon">dark_mode</span>
 			</button>
 		</section>
+
+		<section class="top-app-bar__menu mdc-top-app-bar__section--align-end login" role="toolbar">
+				<?php if (!is_user_logged_in()) : ?>
+					<a href="<?php echo esc_url(site_url('/wp-signup.php')); ?>">
+						<button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">
+							person
+						</button>
+					</a>
+				<?php endif; ?>
+				<?php if (is_user_logged_in()) : ?>
+					<a href="<?php echo wp_logout_url(); ; ?>">
+						<button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">
+							person-arrow-left
+						</button>
+					</a>
+				<?php endif; ?>
+
+
+			</section>
 	</div>
 
 	<div class="mdc-top-app-bar__row top-app-bar__search">

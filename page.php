@@ -10,7 +10,6 @@ get_header();
 		<main id="main" class="site-main">
 
 		<?php
-			 $theParent = wp_get_post_parent_ID(get_the_ID());
 			while ( have_posts() ) :
 				the_post();
 
