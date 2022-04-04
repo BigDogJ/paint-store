@@ -18,12 +18,7 @@
  */
 
 /**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
+ * The template for displaying archive pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -41,19 +36,21 @@ $class_name = sprintf( 'material-archive__%s', $max_width );
 
 		<?php
 		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
 			?>
 
-				<div class="site-main__inner">
-					<?php get_template_part( 'template-parts/archive' ); ?>
-				</div>
+			<header class="page-header">
+				<?php
+				//the_archive_title( '<h1 class="page-title mdc-typography mdc-typography--headline1">', '</h1>' );
+				//the_archive_description( '<div class="archive-description mdc-typography mdc-typography--body1">', '</div>' );
+				?>
+
+                <h1 class="page-title mdc-typography mdc-typography--headline1">All Exterior Paints</h1>
+			</header><!-- .page-header -->
+
+			<div class="site-main__inner">
+				<?php get_template_part( 'template-parts/archive' ); ?>
+			</div>
+		</div>
 
 			<?php
 			get_template_part( 'template-parts/posts-navigation' );
@@ -68,6 +65,6 @@ $class_name = sprintf( 'material-archive__%s', $max_width );
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-
 <?php
 get_footer();
+

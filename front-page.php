@@ -50,13 +50,25 @@ $class_name = sprintf( 'material-archive__%s', $max_width );
 
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="<?php echo get_theme_file_uri('assets\images\customizer\starter-content\products\hoodie-with-logo.jpg') ?>" class="d-block mx-auto">
+					<img src="<?php echo get_theme_file_uri('assets\images\customizer\starter-content\products\YELLOW.png') ?>" class="d-block mx-auto">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Straight Paint</h5>
+						<p>Provide a variety of paint colours and supplies.</p>
+					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="<?php echo get_theme_file_uri("assets\images\customizer\starter-content\products\cap.jpg")?>" class="d-block mx-auto">
+					<img src="<?php echo get_theme_file_uri("assets\images\customizer\starter-content\products\Reddish.png")?>" class="d-block mx-auto">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Straight Paint</h5>
+						<p>A one stop shop for all your redecorating needs.</p>
+					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="<?php echo get_theme_file_uri("assets\images\customizer\starter-content\products\polo.jpg")?>" class="d-block mx-auto">
+					<img src="<?php echo get_theme_file_uri("assets\images\customizer\starter-content\products\green.png")?>" class="d-block mx-auto">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Straight Paint</h5>
+						<p>For the lowest prices come to straight paint.</p>
+					</div>
 				</div>
 			</div>
 
@@ -70,35 +82,123 @@ $class_name = sprintf( 'material-archive__%s', $max_width );
 			</button>
 		</div>
         
-        <!--  
-		<?php
-        /* 
-		if ( have_posts() ) :
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+		<div>
+			<h1 class="page-title mdc-typography mdc-typography--headline4 text-center mt-5">Items on sale</h1>
+			<div class="d-flex">
 				<?php
-			endif;
-			?>
+					$homepagePosts = new WP_Query(array(
+						'posts_per_page' => 3,
+						'post_type' => 'sale'
+					));
+					while($homepagePosts->have_posts()){
+						$homepagePosts->the_post();?>
+						<div class="archive-cards my-4 mx-auto w-25">
+							<?php get_template_part( 'template-parts/content', get_post_type() ); ?>
+						</div>
+					<?php }
+					wp_reset_postdata();
+				?>
+			</div>
 
-				<div class="site-main__inner">
-					<?php get_template_part( 'template-parts/archive' ); ?>
-				</div>
+			<div class="d-flex justify-content-center">
+				<a
+					class="mdc-button mdc-card__action mdc-card__action--button"
+					href="<?php echo site_url('/sales'); ?>"
+				>
+					<span class="mdc-button__ripple"></span>
+					View All Items on Sale
+				</a>
+			</div>
+		</div>
+				
+		<div>
+			<h1 class="page-title mdc-typography mdc-typography--headline4 text-center mt-5">Interior Paints</h1>
+			<div class="d-flex">
+				<?php
+					$homepagePosts = new WP_Query(array(
+						'posts_per_page' => 3,
+						'post_type' => 'interior'
+					));
+					while($homepagePosts->have_posts()){
+						$homepagePosts->the_post();?>
+						<div class="archive-cards my-4 mx-auto w-25">
+							<?php get_template_part( 'template-parts/content', get_post_type() ); ?>
+						</div>
+					<?php }
+					wp_reset_postdata();
+				?>
+			</div>
 
-			<?php
-			get_template_part( 'template-parts/posts-navigation' );
+			<div class="d-flex justify-content-center">
+				<a
+					class="mdc-button mdc-card__action mdc-card__action--button"
+					href="<?php echo site_url('/interiors'); ?>"
+				>
+					<span class="mdc-button__ripple"></span>
+					View All Interior Paints
+				</a>
+			</div>
+		</div>
+				
+		<div>
+			<h1 class="page-title mdc-typography mdc-typography--headline4 text-center mt-5">Exterior Paints</h1>
+			<div class="d-flex">
+				<?php
+					$homepagePosts = new WP_Query(array(
+						'posts_per_page' => 3,
+						'post_type' => 'exterior'
+					));
+					while($homepagePosts->have_posts()){
+						$homepagePosts->the_post();?>
+						<div class="archive-cards my-4 mx-auto w-25">
+							<?php get_template_part( 'template-parts/content', get_post_type() ); ?>
+						</div>
+					<?php }
+					wp_reset_postdata();
+				?>
+			</div>
 
-		else :
+			<div class="d-flex justify-content-center">
+				<a
+					class="mdc-button mdc-card__action mdc-card__action--button"
+					href="<?php echo site_url('/exteriors'); ?>"
+				>
+					<span class="mdc-button__ripple"></span>
+					View All Exterior Paints
+				</a>
+			</div>
+		</div>
+				
+		<div>
+			<h1 class="page-title mdc-typography mdc-typography--headline4 text-center mt-5">Paint Supplies</h1>
+			<div class="d-flex">
+				<?php
+					$homepagePosts = new WP_Query(array(
+						'posts_per_page' => 3,
+						'post_type' => 'supplies'
+					));
+					while($homepagePosts->have_posts()){
+						$homepagePosts->the_post();?>
+						<div class="archive-cards my-4 mx-auto w-25">
+							<?php get_template_part( 'template-parts/content', get_post_type() ); ?>
+						</div>
+					<?php }
+					wp_reset_postdata();
+				?>
+			</div>
 
-			get_template_part( 'template-parts/content', 'none' );
-
-
-		endif; */
-		?>
-        -->
+			<div class="d-flex justify-content-center">
+				<a
+					class="mdc-button mdc-card__action mdc-card__action--button"
+					href="<?php echo site_url('/supplies'); ?>"
+				>
+					<span class="mdc-button__ripple"></span>
+					View All Supplies
+				</a>
+			</div>
+		</div>
+				
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
